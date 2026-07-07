@@ -1,41 +1,22 @@
 import { Link } from 'react-router-dom'
-
-const services = [
-  {
-    tag: 'build',
-    title: 'Desarrollo full stack',
-    desc: 'Aplicaciones web de punta a punta con React, Angular, Node.js y TypeScript. Desde el primer commit hasta producción.',
-  },
-  {
-    tag: 'lead',
-    title: 'Liderazgo técnico',
-    desc: 'Arquitectura, revisión de código y decisiones de stack para equipos que necesitan escalar sin acumular deuda técnica.',
-  },
-  {
-    tag: 'tune',
-    title: 'Optimización de performance',
-    desc: 'Diagnóstico y mejora de queries, tiempos de respuesta y cuellos de botella en sistemas ya en producción.',
-  },
-  {
-    tag: 'teach',
-    title: 'Mentoría técnica',
-    desc: '4+ años formando desarrolladores en instituciones como Coder House, Desafío Latam y Digital House.',
-  },
-]
+import { useLanguage } from '../i18n/LanguageContext.jsx'
 
 export default function Services() {
+  const { dict } = useLanguage()
+  const t = dict.services
+
   return (
     <section>
       <div className="wrap">
         <div className="tag">
           <b>~/</b>
-          <span>servicios</span>
+          <span>{t.eyebrow}</span>
         </div>
-        <h1>En qué puedo ayudarte</h1>
-        <p className="lede">Cuatro formas de trabajar juntos, según lo que tu proyecto necesite.</p>
+        <h1>{t.h1}</h1>
+        <p className="lede">{t.lede}</p>
 
         <div className="grid grid-2">
-          {services.map((s) => (
+          {t.items.map((s) => (
             <div className="card" key={s.tag}>
               <span className="mono-index">#{s.tag}</span>
               <h3>{s.title}</h3>
@@ -46,7 +27,7 @@ export default function Services() {
 
         <div className="btn-row">
           <Link to="/contacto" className="btn btn-primary">
-            Empecemos una conversación →
+            {t.cta}
           </Link>
         </div>
       </div>

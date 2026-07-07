@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom'
+import { useLanguage } from '../i18n/LanguageContext.jsx'
 
 export default function Home() {
+  const { dict } = useLanguage()
+  const t = dict.home
+
   return (
     <>
       <section className="hero">
@@ -10,22 +14,19 @@ export default function Home() {
         <div className="wrap hero-inner">
           <div className="tag">
             <b>~/</b>
-            <span>home</span>
+            <span>{t.eyebrow}</span>
           </div>
           <h1>
-            Construyo software que <span className="hero-name">funciona bajo presión</span>.
+            {t.h1a} <span className="hero-name">{t.h1b}</span>
+            {t.h1end}
           </h1>
-          <p className="lede">
-            Soy Júnior Nogueira, desarrollador full stack y líder técnico. Trabajo el stack
-            completo — React, Angular, Node.js, TypeScript — y las decisiones de arquitectura que
-            hacen que un sistema aguante producción real.
-          </p>
+          <p className="lede">{t.lede}</p>
           <div className="btn-row">
             <Link to="/servicios" className="btn btn-primary">
-              Ver servicios →
+              {t.ctaServices}
             </Link>
             <Link to="/contacto" className="btn btn-ghost">
-              Hablemos
+              {t.ctaContact}
             </Link>
           </div>
         </div>
@@ -35,24 +36,42 @@ export default function Home() {
         <div className="wrap">
           <div className="tag">
             <b>#</b>
-            <span>en números</span>
+            <span>{t.statsEyebrow}</span>
           </div>
-          <h2>Resultados, no promesas</h2>
+          <h2>{t.statsH2}</h2>
           <div className="grid grid-3">
             <div className="card">
               <span className="mono-index">01</span>
-              <h3>60x más rápido</h3>
-              <p>Optimización de queries de backend en un sistema con alto volumen de tráfico.</p>
+              <h3>{t.stat1Title}</h3>
+              <p>{t.stat1Desc}</p>
             </div>
             <div className="card">
               <span className="mono-index">02</span>
-              <h3>-85% latencia SQL</h3>
-              <p>Reducción del tiempo de respuesta en consultas críticas de negocio.</p>
+              <h3>{t.stat2Title}</h3>
+              <p>{t.stat2Desc}</p>
             </div>
             <div className="card">
               <span className="mono-index">03</span>
-              <h3>6+ años, 5 industrias</h3>
-              <p>Seguros, fintech, salud, e-commerce y energía renovable.</p>
+              <h3>{t.stat3Title}</h3>
+              <p>{t.stat3Desc}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="wrap about-teaser">
+          <div>
+            <div className="tag">
+              <b>~/</b>
+              <span>{t.teaserEyebrow}</span>
+            </div>
+            <h2>{t.teaserH2}</h2>
+            <p>{t.teaserP}</p>
+            <div className="btn-row">
+              <Link to="/nosotros" className="btn btn-ghost">
+                {t.teaserCta}
+              </Link>
             </div>
           </div>
         </div>
